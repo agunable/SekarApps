@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
     final String TAG = this.getClass().getSimpleName();
 
-    EditText etUsername, etPassword;
+    EditText etUsername;
     Button btnLogin;
 
     @Override
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         etUsername = (EditText)findViewById(R.id.etUsername);
-        etPassword = (EditText)findViewById(R.id.etPassword);
+        //etPassword = (EditText)findViewById(R.id.etPassword);
         btnLogin = (Button)findViewById(R.id.btnLogin);
 
 
@@ -59,9 +59,9 @@ public class MainActivity extends AppCompatActivity {
                         if(response.equalsIgnoreCase("correct")){
                             Intent in = new Intent(MainActivity.this, MenuActivity.class);
                             String newUsername = etUsername.getText().toString();
-                            String newPassword = etUsername.getText().toString();
+                            //String newPassword = etPassword.getText().toString();
                             in.putExtra("newUsername", newUsername);
-                            in.putExtra("newPassword", newPassword);
+                            //in.putExtra("newPassword", newPassword);
                             startActivity(in);
                         }
                         else {
@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
                     protected Map<String, String> getParams() throws AuthFailureError {
                         Map<String, String> params = new HashMap<>();
                         params.put("username", etUsername.getText().toString());
-                        params.put("password", etPassword.getText().toString());
+                       // params.put("password", etPassword.getText().toString());
                         return params;
                     }
                 };
