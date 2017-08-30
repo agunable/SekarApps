@@ -39,14 +39,6 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         etUsername = (EditText)findViewById(R.id.etUsername);
         etPassword = (EditText)findViewById(R.id.etPassword);
@@ -57,12 +49,14 @@ public class MainActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String url = "http://www.gunglaksman.com/sekar/test.php";
+                String url = "http://192.168.1.100/sekar/test.php";
 
                 StringRequest stringRequest = new StringRequest(Request.Method.POST,url, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        if(response.equals("correct")){
+                        //response = response.trim();
+                        Log.d("from onResponse()", response);
+                        if(response.equalsIgnoreCase("correct")){
                             Intent in = new Intent(MainActivity.this, MenuActivity.class);
                             String newUsername = etUsername.getText().toString();
                             String newPassword = etUsername.getText().toString();
@@ -71,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                             startActivity(in);
                         }
                         else {
-                            Toast.makeText(getApplicationContext(), "Wrong username or password", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), response, Toast.LENGTH_SHORT).show();
                         }
                     }
                 }, new Response.ErrorListener() {
