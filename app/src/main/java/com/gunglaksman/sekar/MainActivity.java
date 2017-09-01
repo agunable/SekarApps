@@ -57,7 +57,8 @@ public class MainActivity extends AppCompatActivity {
                         //response = response.trim();
                         Log.d("from onResponse()", response);
                         if(response.equalsIgnoreCase("correct")){
-                            Intent in = new Intent(MainActivity.this, MenuActivity.class);
+                            //Intent in = new Intent(MainActivity.this, MenuActivity.class);
+                            Intent in = new Intent(MainActivity.this, UpdatesActivity.class);
                             String newUsername = etUsername.getText().toString();
                             //String newPassword = etPassword.getText().toString();
                             in.putExtra("newUsername", newUsername);
