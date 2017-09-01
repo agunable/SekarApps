@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 
 import com.gunglaksman.sekar.R;
 import com.gunglaksman.sekar.mRecycler.MyAdapter;
+import com.gunglaksman.sekar.mRecycler.MySecondAdapter;
 
 
 /**
@@ -20,6 +21,7 @@ import com.gunglaksman.sekar.mRecycler.MyAdapter;
 public class MaterialsFragment extends Fragment {
 
     String[] materi={"Materi 1", "Materi 2", "Materi 3", "Materi 4", "Materi 5"};
+    String[] subJudul = {"Pemahanam tentang Sekar","Kata sambutan","Pentingnya Iptek dalam perkembangan bangsa","Pemahaman tentang Big Data","Buat aplikasi ini sulit juga"};
 
     @Nullable
     @Override
@@ -30,8 +32,10 @@ public class MaterialsFragment extends Fragment {
         RecyclerView rv = (RecyclerView) rootView.findViewById(R.id.materialsRV);
         rv.setLayoutManager(new LinearLayoutManager(this.getActivity()));
 
-        MyAdapter adapter = new MyAdapter(this.getActivity(),materi);
+        MyAdapter adapter = new MyAdapter(this.getActivity(),materi,subJudul);
+        //MySecondAdapter adapter1 = new MySecondAdapter(this.getActivity(),subJudul);
         rv.setAdapter(adapter);
+        //rv.setAdapter(adapter1);
 
         return rootView;
     }

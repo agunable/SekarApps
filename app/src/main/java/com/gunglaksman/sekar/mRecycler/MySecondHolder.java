@@ -12,15 +12,14 @@ import org.w3c.dom.Text;
  * Created by Laksman on 9/1/2017.
  */
 
-public class MyHolder extends RecyclerView.ViewHolder{
+public class MySecondHolder extends RecyclerView.ViewHolder{
 
-    TextView nametxt, judul;
+    TextView nametxt;
 
-    public MyHolder(View itemView) {
+    public MySecondHolder(View itemView) {
         super(itemView);
 
-        nametxt = (TextView) itemView.findViewById(R.id.nameTxt);
-        judul = (TextView) itemView.findViewById(R.id.subJudul);
+        nametxt = (TextView) itemView.findViewById(R.id.subJudul);
 
     }
 }

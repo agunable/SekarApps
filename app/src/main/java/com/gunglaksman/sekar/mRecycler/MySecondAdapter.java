@@ -12,34 +12,31 @@ import com.gunglaksman.sekar.R;
  * Created by Laksman on 9/1/2017.
  */
 
-public class MyAdapter extends RecyclerView.Adapter<MyHolder>
+public class MySecondAdapter extends RecyclerView.Adapter<MySecondHolder>
 {
 
     Context c;
-    String[] materials;
     String[] subjudul;
 
-    public MyAdapter(Context c, String[] materials, String[] subjudul) {
+    public MySecondAdapter(Context c, String[] materials) {
         this.c = c;
-        this.materials = materials;
         this.subjudul = subjudul;
     }
 
     @Override
-    public MyHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public MySecondHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v= LayoutInflater.from(parent.getContext()).inflate(R.layout.model,parent, false);
-        return new MyHolder(v);
+        return new MySecondHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(MyHolder holder, int position) {
-        holder.nametxt.setText(materials[position]);
-        holder.judul.setText(subjudul[position]);
+    public void onBindViewHolder(MySecondHolder holder, int position) {
+        holder.nametxt.setText(subjudul[position]);
 
     }
 
     @Override
     public int getItemCount() {
-        return materials.length;
+        return subjudul.length;
     }
 }
