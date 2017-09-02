@@ -28,7 +28,9 @@
         <activity
             android:name=".MenuActivity"
             android:label="@string/title_activity_menu" />
-        <activity android:name=".UpdatesActivity"></activity>
+        <activity android:name=".UpdatesActivity" />
+        <activity android:name=".MainMenuActivity" />
+        <activity android:name=".TesActivity"></activity>
     </application>
 
 </manifest>
