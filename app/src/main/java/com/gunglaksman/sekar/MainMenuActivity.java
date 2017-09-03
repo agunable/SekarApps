@@ -10,7 +10,7 @@ import android.widget.Button;
 public class MainMenuActivity extends AppCompatActivity {
 
     Button btnCamera, btnUpdates, btnContents;
-
+    String newUsername;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,10 +20,21 @@ public class MainMenuActivity extends AppCompatActivity {
         btnContents = (Button) findViewById(R.id.btnMenu);
         btnUpdates = (Button) findViewById(R.id.btnUpdates);
 
+
+
+        //Intent intent = getIntent();
+        //Bundle bundle = intent.getExtras();
+        //if(bundle != null){
+            //newUsername = bundle.getString("newUsername");
+        //}
+
+        newUsername = getIntent().getStringExtra("newUsername");
+
         btnCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent camera = new Intent(MainMenuActivity.this, SubActivity.class);
+                camera.putExtra("finalUsername", newUsername);
                 startActivity(camera);
             }
         });

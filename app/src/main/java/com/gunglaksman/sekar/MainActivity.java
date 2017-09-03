@@ -1,5 +1,6 @@
 package com.gunglaksman.sekar;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.icu.text.UnicodeSetSpanner;
 import android.os.Bundle;
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
     EditText etUsername;
     Button btnLogin;
-
+    private ProgressDialog loading;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,13 +50,16 @@ public class MainActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String url = "http://192.168.1.100/sekar/test.php";
+                //String url = "http://192.168.1.100/sekar/test.php";
+                String url = "http://sekar.azurewebsites.net/test.php";
+                loading = ProgressDialog.show(MainActivity.this,"Silahkan tunggu","Mengenali ID..",false,false);
 
                 StringRequest stringRequest = new StringRequest(Request.Method.POST,url, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         //response = response.trim();
                         Log.d("from onResponse()", response);
+                        loading.dismiss();
                         if(response.equalsIgnoreCase("correct")){
                             //Intent in = new Intent(MainActivity.this, MenuActivity.class);
                             Intent in = new Intent(MainActivity.this, MainMenuActivity.class);

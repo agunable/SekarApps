@@ -5,7 +5,7 @@ package com.gunglaksman.sekar;
  */
 
 public class Config {
-    public static final String DATA_URL = "http://192.168.1.100/sekar/info.php";
+    public static final String DATA_URL = "http://sekar.azurewebsites.net/info.php";
     public static final String KEY_INFO = "info";
     public static final String JSON_ARRAY = "result";
 }

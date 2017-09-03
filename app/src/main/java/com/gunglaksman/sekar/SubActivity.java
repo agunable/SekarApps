@@ -20,7 +20,7 @@ public class SubActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         textView = (TextView)findViewById(R.id.textView);
-        String username = getIntent().getStringExtra("newUsername");
+        String username = getIntent().getStringExtra("finalUsername");
         String password = getIntent().getStringExtra("newPassword");
         textView.setText(username);
 
